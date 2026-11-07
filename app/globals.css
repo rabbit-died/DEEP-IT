@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #0c2233;
+  --ink-soft: #52616f;
+  --paper: #ffffff;
+  --mist: #f4f6f8;
+  --line: #dde2e8;
+  --accent: #2f5bea;
+  --accent-dark: #2349c4;
+  --danger: #c2362b;
+}
+
+@theme inline {
+  --font-display: var(--font-bricolage), system-ui, sans-serif;
+  --font-sans: var(--font-instrument), system-ui, sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-instrument), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Left panel: concentric "depth" rings, the one memorable element */
+.depth-panel {
+  background-color: var(--ink);
+  background-image: repeating-radial-gradient(
+    circle at 82% 108%,
+    rgba(255, 255, 255, 0.075) 0 1px,
+    transparent 1px 54px
+  );
+}
+
+/* Form fields */
+.field {
+  width: 100%;
+  height: 48px;
+  padding: 0 14px;
+  font-size: 15px;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.field::placeholder {
+  color: #9aa6b2;
+}
+
+.field:hover {
+  border-color: #c3cbd4;
+}
+
+.field:focus-visible {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(47, 91, 234, 0.18);
+}
+
+.btn-primary {
+  width: 100%;
+  height: 48px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.05s ease;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--accent-dark);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.btn-primary:focus-visible {
+  outline: 3px solid rgba(47, 91, 234, 0.35);
+  outline-offset: 2px;
+}
+
+.btn-primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
